@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Board from './board/Board';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world!</h1>
+    <div className="app">
+      <div className="header container">
+        <h1>Ongoing</h1>
+      </div>
       <Board />
     </div>
   );

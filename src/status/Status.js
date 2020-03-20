@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Task from '../task/Task';
+import './Status.scss';
 
 class Status extends React.Component {
   render() {
     return (
-      <div>
-        <h3>Status</h3>
+      <div className="status col bg-light mx-1 py-3">
         <Task/>
         <Task/>
         <Task/>
