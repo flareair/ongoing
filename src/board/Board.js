@@ -1,12 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import Status from '../status/Status';
-import { connect } from 'react-redux';
 
 class Board extends React.Component {
   render() {
     return (
       <main className="container">
+        <h1>{this.props.board.name}</h1>
         <div className="row px-2">
           {
             this.props.statuses.map(status => {
@@ -19,17 +21,19 @@ class Board extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  function getStatuses(state) {
-    return state.allStatuses.map(status => state.statusesById[status]);
-  }
+function getStatuses(state) {
+  return state.allStatuses.map(status => state.statusesById[status]);
+}
 
-  return {
-    board: state.board,
-    statuses: getStatuses(state)
-  }
+function getBoardInfo(state) {
+  return state.board;
 }
 
 export default connect(
-  mapStateToProps
+  createStructuredSelector(
+    {
+      board: getBoardInfo,
+      statuses: getStatuses
+    }
+  )
 )(Board);

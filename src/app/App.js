@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import './App.scss';
+
 import Board from '../board/Board';
 
-function App() {
-  return (
-    <div className="app">
-      <div className="header container">
-        <h1>Ongoing</h1>
+class App extends Component {
+  render() {
+    return (
+      <div className="app">
+        <Board />
       </div>
-      <Board />
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
