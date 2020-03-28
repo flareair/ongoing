@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-import { getBoardName, getStatuses, getTaskCount } from './Board.selectors'
+import { getBoardName, getStatuses, getTaskCount } from './Board.selectors';
 import Status from '../status/Status';
 
 class Board extends React.Component {
@@ -14,7 +14,7 @@ class Board extends React.Component {
         <div className="row px-2">
           {
             this.props.statuses.map(status => {
-              return <Status status={status} key={status.id}/>
+              return <Status status={status} key={status.id}/>;
             })
           }
         </div>
