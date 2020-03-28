@@ -36,5 +36,6 @@ export default {
     status_1: ['task_1'],
     status_2: ['task_2'],
     status_3: ['task_3']
-  }
+  },
+  allTasks: ['task_1', 'task_2', 'task_3']
 };
