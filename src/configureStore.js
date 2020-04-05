@@ -1,15 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { logger } from 'redux-logger';
 
-const rootReducer = function(state) {
-  return state;
-};
+import { taskById, tasksByStatus, allTasks } from './task/Task.reducers';
+import { board } from './board/Board.reducers';
+import { statusesById, allStatuses } from './status/Statuses.reducers';
 
-export default  function configureStore(initialState) {
+const rootReducer = combineReducers({
+  board,
+  taskById,
+  tasksByStatus,
+  allTasks,
+  statusesById,
+  allStatuses
+});
+
+export default  function configureStore() {
   return createStore(
     rootReducer,
-    initialState,
     applyMiddleware(logger, thunkMiddleware)
   );
 };

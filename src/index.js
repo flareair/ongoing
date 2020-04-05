@@ -7,10 +7,11 @@ import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 
 import configureStore from './configureStore';
-import initialState from './initialState';
 
-const store = configureStore(initialState);
+const store = configureStore();
+
 function Root() {
+  console.log(store.getState());
   return (
     <Provider store={store}>
       <App/>

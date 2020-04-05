@@ -11,7 +11,7 @@ class Status extends React.Component {
         <h2>{this.props.status.name}</h2>
         {
           this.props.tasks.map(task => {
-            return <Task task={task} key={task.id}/>;
+            return <Task task={task} status={this.props.status} key={task.id}/>;
           })
         }
       </div>
@@ -22,7 +22,7 @@ class Status extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     tasks: state.tasksByStatus[ownProps.status.id]
-      .map(taskId => state.tasksById[taskId])
+      .map(taskId => state.taskById[taskId])
   };
 }
 
