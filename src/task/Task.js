@@ -8,7 +8,7 @@ class Task extends React.Component {
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">{this.props.task.title}</h5>
-          <button onClick={this.props.removeTask()} class="btn btn-primary">Go somewhere</button>
+          <button onClick={() => this.props.removeTask()} className="btn btn-default">Remove</button>
         </div>
       </div>
       
@@ -18,7 +18,7 @@ class Task extends React.Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    removeTask: () => dispatch(removeTask(ownProps.task.title, ownProps.status.id))
+    removeTask: () => dispatch(removeTask(ownProps.task.id, ownProps.status.id))
   };
 };
 

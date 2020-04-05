@@ -11,7 +11,6 @@ import configureStore from './configureStore';
 const store = configureStore();
 
 function Root() {
-  console.log(store.getState());
   return (
     <Provider store={store}>
       <App/>

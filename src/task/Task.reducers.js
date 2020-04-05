@@ -45,7 +45,7 @@ export const tasksByStatus = (state = initialState.tasksByStatus, action) => {
     const { taskId, taskStatusId } = action;
     return {
       ...state,
-      [taskStatusId]: state[taskStatusId].filter(task => task.id !== taskId)
+      [taskStatusId]: state[taskStatusId].filter(taskFromList => taskFromList !== taskId)
     };
   default:
     return state;
@@ -55,7 +55,7 @@ export const tasksByStatus = (state = initialState.tasksByStatus, action) => {
 export const allTasks = (state = initialState.allTasks, action) => {
   switch (action.type) {
   case TASK_REMOVE:
-    return state.filter(task => task.id !== action.taskId);
+    return state.filter(taskFromList => taskFromList !== action.taskId);
   default:
     return state;
   }
