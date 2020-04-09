@@ -2,7 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { removeTask } from './Task.actions';
 
-class Task extends React.Component {
+import { Task as TaskInterface } from './Task.types';
+
+interface TaskProps {
+  task: TaskInterface,
+  removeTask: Function
+}
+
+class Task extends React.Component<TaskProps> {
   render() {
     return (
       <div className="card">
@@ -11,7 +18,6 @@ class Task extends React.Component {
           <button onClick={() => this.props.removeTask()} className="btn btn-default">Remove</button>
         </div>
       </div>
-      
     );
   }
 }

@@ -1,4 +1,6 @@
-const initialState = {
+import { StatusesState, StatusByIdState, AllStatusesState } from './Status.types';
+
+const initialState: StatusesState = {
   statusById: {
     status_1: {
       id: 'status_1',
@@ -16,10 +18,10 @@ const initialState = {
   allStatuses: ['status_1', 'status_2', 'status_3'],
 };
 
-export const statusById = (state = initialState.statusById, action) => {
+export const statusById = (state: StatusByIdState = initialState.statusById, action): StatusByIdState => {
   return state;
 };
 
-export const allStatuses = (state = initialState.allStatuses, action) => {
+export const allStatuses = (state: AllStatusesState  = initialState.allStatuses, action): AllStatusesState => {
   return state;
 };

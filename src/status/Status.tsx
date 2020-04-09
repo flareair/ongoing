@@ -3,8 +3,15 @@ import { connect } from 'react-redux';
 
 import Task from '../task/Task';
 import './Status.scss';
+import { Status as StatusInterface } from './Status.types';
+import { Task as TaskInterface} from '../task/Task.types';
 
-class Status extends React.Component {
+interface StatusProps {
+  status: StatusInterface
+  tasks: TaskInterface[]
+}
+
+class Status extends React.Component<StatusProps> {
   render() {
     return (
       <div className="status col bg-light mx-1 py-3">

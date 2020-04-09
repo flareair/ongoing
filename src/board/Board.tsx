@@ -4,10 +4,11 @@ import { createStructuredSelector } from 'reselect';
 
 import { getBoardName, getStatuses, getTaskCount } from './Board.selectors';
 import Status from '../status/Status';
+import { Status as StatusInterface } from '../status/Status.types';
 
 interface BoardProps {
   boardName: string;
-  statuses: Object[],
+  statuses: StatusInterface[],
   taskCount: number
 };
 
