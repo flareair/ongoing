@@ -1,7 +1,7 @@
 import { TASK_REMOVE } from './Task.actions';
-import { removeTaskAction, taskByIdState, tasksByStatusState, allTasksState, tasksState } from './Task.types'
+import { RemoveTaskAction, TaskByIdState, TasksByStatusState, AllTasksState, TasksState } from './Task.types'
 
-const initialState: tasksState = {
+const initialState: TasksState = {
   taskById: {
     task_1: {
       id: 'task_1',
@@ -24,7 +24,7 @@ const initialState: tasksState = {
   allTasks: ['task_1', 'task_2', 'task_3']
 };
 
-export const taskById = (state = initialState.taskById, action: removeTaskAction): taskByIdState => {
+export const taskById = (state = initialState.taskById, action: RemoveTaskAction): TaskByIdState => {
   switch (action.type) {
 
   case TASK_REMOVE:
@@ -40,7 +40,7 @@ export const taskById = (state = initialState.taskById, action: removeTaskAction
   }
 };
 
-export const tasksByStatus = (state = initialState.tasksByStatus, action: removeTaskAction): tasksByStatusState => {
+export const tasksByStatus = (state = initialState.tasksByStatus, action: RemoveTaskAction): TasksByStatusState => {
   switch (action.type) {
   case TASK_REMOVE:
     const { taskId, taskStatusId } = action;
@@ -53,7 +53,7 @@ export const tasksByStatus = (state = initialState.tasksByStatus, action: remove
   }
 };
 
-export const allTasks = (state = initialState.allTasks, action: removeTaskAction): allTasksState => {
+export const allTasks = (state = initialState.allTasks, action: RemoveTaskAction): AllTasksState => {
   switch (action.type) {
   case TASK_REMOVE:
     return state.filter(taskFromList => taskFromList !== action.taskId);

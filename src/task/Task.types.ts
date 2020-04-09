@@ -1,4 +1,4 @@
-export interface removeTaskAction {
+export interface RemoveTaskAction {
   type: string,
   taskId: string,
   taskStatusId: string
@@ -9,18 +9,18 @@ export interface Task {
   title: string
 }
 
-export interface taskByIdState {
+export interface TaskByIdState {
   [prop: string]: Task
 }
 
-export interface tasksByStatusState {
+export interface TasksByStatusState {
   [prop: string]: string[]
 }
 
-export type allTasksState = string[];
+export type AllTasksState = string[];
 
-export interface tasksState {
-  taskById: taskByIdState,
-  tasksByStatus: tasksByStatusState
-  allTasks: allTasksState
+export interface TasksState {
+  taskById: TaskByIdState,
+  tasksByStatus: TasksByStatusState
+  allTasks: AllTasksState
 }
