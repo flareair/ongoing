@@ -4,7 +4,7 @@ import { logger } from 'redux-logger';
 
 import { taskById, tasksByStatus, allTasks } from './task/Task.reducers';
 import { board } from './board/Board.reducers';
-import { statusesById, allStatuses } from './status/Statuses.reducers';
+import { statusesById, allStatuses } from './status/Status.reducers';
 
 const rootReducer = combineReducers({
   board,
