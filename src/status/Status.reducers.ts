@@ -1,5 +1,5 @@
 const initialState = {
-  statusesById: {
+  statusById: {
     status_1: {
       id: 'status_1',
       name: 'TODO'
@@ -16,7 +16,7 @@ const initialState = {
   allStatuses: ['status_1', 'status_2', 'status_3'],
 };
 
-export const statusesById = (state = initialState.statusesById, action) => {
+export const statusById = (state = initialState.statusById, action) => {
   return state;
 };
 
