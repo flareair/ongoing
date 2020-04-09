@@ -1,10 +1,6 @@
-export const TASK_REMOVE = 'TASK_REMOVE';
+import { removeTaskAction } from './Task.types'
 
-export interface removeTaskAction {
-  type: typeof TASK_REMOVE,
-  taskId: string,
-  taskStatusId: string
-}
+export const TASK_REMOVE = 'TASK_REMOVE';
 
 export const removeTask = (taskId: string, taskStatusId: string): removeTaskAction => {
   return {

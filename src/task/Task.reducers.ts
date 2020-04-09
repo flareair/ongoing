@@ -1,26 +1,5 @@
-import { TASK_REMOVE, removeTaskAction } from './Task.actions';
-import Task from './Task';
-
-export interface Task {
-  id: string,
-  title: string
-}
-
-interface taskByIdState {
-  [prop: string]: Task
-}
-
-interface tasksByStatusState {
-  [prop: string]: string[]
-}
-
-type allTasksState = string[];
-
-export interface tasksState {
-  taskById: taskByIdState,
-  tasksByStatus: tasksByStatusState
-  allTasks: allTasksState
-}
+import { TASK_REMOVE } from './Task.actions';
+import { removeTaskAction, taskByIdState, tasksByStatusState, allTasksState, tasksState } from './Task.types'
 
 const initialState: tasksState = {
   taskById: {
