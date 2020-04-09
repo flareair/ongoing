@@ -1,5 +1,7 @@
+import { TASK_REMOVE } from './Task.actions';
+
 export interface RemoveTaskAction {
-  type: string,
+  type: typeof TASK_REMOVE,
   taskId: string,
   taskStatusId: string
 }
