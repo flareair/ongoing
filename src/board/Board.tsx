@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import PropTypes from 'prop-types';
 
 import { getBoardName, getStatuses, getTaskCount } from './Board.selectors';
 import Status from '../status/Status';
 
-class Board extends React.Component {
+interface BoardProps {
+  boardName: string;
+  statuses: Object[],
+  taskCount: number
+};
+
+class Board extends React.Component<BoardProps> {
   render() {
     return (
       <main className="container">
@@ -22,12 +27,6 @@ class Board extends React.Component {
     );
   }
 }
-
-Board.propTypes = {
-  boardName: PropTypes.string,
-  statuses: PropTypes.array,
-  taskCount: PropTypes.number
-};
 
 export default connect(
   createStructuredSelector(
