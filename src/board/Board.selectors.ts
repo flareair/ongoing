@@ -1,4 +1,4 @@
-export const getStatuses = state => state.allStatuses.map(status => state.statusesById[status]);
+export const getStatuses = state => state.allStatuses.map(status => state.statusById[status]);
 
 export const getBoardName = state => state.board.name;
 
