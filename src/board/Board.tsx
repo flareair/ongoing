@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { getBoardName, getStatuses, getTaskCount } from './Board.selectors';
 import Status from '../status/Status';
 import { Status as StatusInterface } from '../status/Status.types';
-import { StateInterface } from '../index.types';
+import { State } from '../index.types';
 
 interface BoardProps {
   boardName: string;
@@ -31,7 +31,7 @@ class Board extends React.Component<BoardProps> {
 }
 
 export default connect(
-  createStructuredSelector<StateInterface, BoardProps>(
+  createStructuredSelector<State, BoardProps>(
     {
       boardName: getBoardName,
       statuses: getStatuses,
