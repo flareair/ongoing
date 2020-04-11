@@ -1,5 +1,5 @@
 import { TASK_REMOVE } from './Task.actions';
-import { RemoveTaskAction, TaskByIdState, TasksByStatusState, AllTasksState, TasksState } from './Task.types'
+import { RemoveTaskAction, TaskByIdState, TasksByStatusState, AllTasksState, TasksState } from './Task.types';
 
 const initialState: TasksState = {
   taskById: {
