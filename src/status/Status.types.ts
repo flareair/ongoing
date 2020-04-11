@@ -4,12 +4,12 @@ export interface Status {
 }
 
 export interface StatusByIdState {
-  [prop: string]: Status
+  readonly [prop: string]: Status
 }
 
-export type AllStatusesState = string[];
+export type AllStatusesState = ReadonlyArray<string>;
 
 export interface StatusesState {
-  statusById: StatusByIdState,
-  allStatuses: AllStatusesState
+  readonly statusById: StatusByIdState,
+  readonly allStatuses: AllStatusesState
 }

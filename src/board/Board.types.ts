@@ -4,5 +4,5 @@ export interface Board {
 }
 
 export interface BoardState {
-  board: Board
+  readonly board: Board
 }

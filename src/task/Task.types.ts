@@ -12,17 +12,17 @@ export interface Task {
 }
 
 export interface TaskByIdState {
-  [prop: string]: Task
+  readonly [prop: string]: Task
 }
 
 export interface TasksByStatusState {
-  [prop: string]: string[]
+  readonly[prop: string]: ReadonlyArray<string>
 }
 
-export type AllTasksState = string[];
+export type AllTasksState = ReadonlyArray<string>;
 
 export interface TasksState {
-  taskById: TaskByIdState,
-  tasksByStatus: TasksByStatusState
-  allTasks: AllTasksState
+  readonly taskById: TaskByIdState,
+  readonly tasksByStatus: TasksByStatusState
+  readonly allTasks: AllTasksState
 }
