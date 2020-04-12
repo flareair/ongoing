@@ -1,25 +1,27 @@
-import { TASK_REMOVE, TASK_ADD } from './Task.actions';
+import { TaskActionTypes } from './Task.actions';
 
-export interface RemoveTaskAction {
-  type: typeof TASK_REMOVE,
-  taskId: string,
-  taskStatusId: string
-}
-
-export interface AddTaskAction {
-  type: typeof TASK_ADD,
-  taskId: string,
-  title: string
-  taskStatusId: string
-}
-
-export type TaskAction = RemoveTaskAction | AddTaskAction;
-
+// Objects
 export interface Task {
   id: string,
   title: string
 }
 
+// Actions
+export interface RemoveTaskAction {
+  type: TaskActionTypes.TASK_REMOVE,
+  taskId: string,
+  taskStatusId: string
+}
+
+export interface AddTaskAction {
+  type: 'TASK_ADD',
+  task: Task,
+  taskStatusId: string
+}
+
+export type TaskActions = RemoveTaskAction | AddTaskAction;
+
+// States
 export interface TaskByIdState {
   readonly [prop: string]: Task
 }

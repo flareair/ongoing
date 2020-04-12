@@ -1,5 +1,5 @@
-import { TASK_REMOVE } from './Task.actions';
-import { RemoveTaskAction, TaskByIdState, TasksByStatusState, AllTasksState, TasksState } from './Task.types';
+import { TaskActionTypes } from './Task.actions';
+import { TaskActions, TaskByIdState, TasksByStatusState, AllTasksState, TasksState } from './Task.types';
 
 const initialState: TasksState = {
   taskById: {
@@ -24,38 +24,48 @@ const initialState: TasksState = {
   allTasks: ['task_1', 'task_2', 'task_3']
 };
 
-export const taskById = (state = initialState.taskById, action: RemoveTaskAction): TaskByIdState => {
+export const taskById = (state = initialState.taskById, action: TaskActions): TaskByIdState => {
   switch (action.type) {
-
-  case TASK_REMOVE:
+  case TaskActionTypes.TASK_REMOVE:
     const {
       [action.taskId]: _taskIdToRemove,
       ...restOfTasks 
     } = state;
 
     return restOfTasks;
+  case TaskActionTypes.TASK_ADD:
+    const { task }  = action;
+    return {
+      ...state,
+      [task.id]: task
+    };
 
   default:
     return state;
   }
 };
 
-export const tasksByStatus = (state = initialState.tasksByStatus, action: RemoveTaskAction): TasksByStatusState => {
+export const tasksByStatus = (state = initialState.tasksByStatus, action: TaskActions): TasksByStatusState => {
   switch (action.type) {
-  case TASK_REMOVE:
-    const { taskId, taskStatusId } = action;
+  case TaskActionTypes.TASK_REMOVE:
     return {
       ...state,
-      [taskStatusId]: state[taskStatusId].filter(taskFromList => taskFromList !== taskId)
+      [action.taskStatusId]: state[action.taskStatusId]
+        .filter(taskFromList => taskFromList !== action.taskId)
+    };
+  case TaskActionTypes.TASK_ADD:
+    return {
+      ...state,
+      [action.taskStatusId]: [...state[action.taskStatusId], action.task.id]
     };
   default:
     return state;
   }
 };
 
-export const allTasks = (state = initialState.allTasks, action: RemoveTaskAction): AllTasksState => {
+export const allTasks = (state = initialState.allTasks, action: TaskActions): AllTasksState => {
   switch (action.type) {
-  case TASK_REMOVE:
+  case TaskActionTypes.TASK_REMOVE:
     return state.filter(taskFromList => taskFromList !== action.taskId);
   default:
     return state;

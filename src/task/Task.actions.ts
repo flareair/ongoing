@@ -1,23 +1,29 @@
 import { nanoid } from 'nanoid';
 
-import { RemoveTaskAction, AddTaskAction } from './Task.types';
+import { Task, RemoveTaskAction, AddTaskAction } from './Task.types';
 
-export const TASK_REMOVE: string = 'TASK_REMOVE';
-export const TASK_ADD: string = 'TASK_ADD';
+export enum TaskActionTypes {
+  TASK_REMOVE = 'TASK_REMOVE',
+  TASK_ADD = 'TASK_ADD'
+}
 
 export const removeTask = (taskId: string, taskStatusId: string): RemoveTaskAction => {
   return {
-    type: TASK_REMOVE,
+    type: TaskActionTypes.TASK_REMOVE,
     taskId,
     taskStatusId
   };
 };
 
 export const addTask = (title: string, taskStatusId: string): AddTaskAction => {
+  const task: Task = {
+    id: nanoid(),
+    title: title
+  };
+
   return {
-    type: TASK_ADD,
-    taskId: nanoid(),
-    title,
+    type: TaskActionTypes.TASK_ADD,
+    task,
     taskStatusId
   };
 };
