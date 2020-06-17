@@ -7,19 +7,19 @@ export interface Task {
 }
 
 // Actions
-export interface RemoveTaskAction {
+export interface RemoveTask {
   type: TaskActionTypes.TASK_REMOVE,
   taskId: string,
   taskStatusId: string
 }
 
-export interface AddTaskAction {
+export interface AddTask {
   type: 'TASK_ADD',
   task: Task,
   taskStatusId: string
 }
 
-export type TaskActions = RemoveTaskAction | AddTaskAction;
+export type TaskActions = RemoveTask | AddTask;
 
 // States
 export interface TaskByIdState {
