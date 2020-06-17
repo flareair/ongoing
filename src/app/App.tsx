@@ -7,7 +7,7 @@ import Board from '../board/Board';
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="App">
         <Board />
       </div>
     );
