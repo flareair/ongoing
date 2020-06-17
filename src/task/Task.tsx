@@ -6,16 +6,39 @@ import { Task as TaskInterface } from './Task.types';
 
 interface TaskProps {
   task: TaskInterface,
-  removeTask: Function
+  removeTask: Function,
+  removeTaskHandler: Function
 }
 
-class Task extends React.Component<TaskProps> {
+interface TaskState {
+  removalInProgress: boolean
+}
+
+class Task extends React.Component<TaskProps, TaskState> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      removalInProgress: false
+    };
+
+    this.removeTaskHandler = this.removeTaskHandler.bind(this);
+  }
+
+  removeTaskHandler(event: React.MouseEvent): void {
+    this.setState({
+      removalInProgress: true
+    });
+
+    setTimeout(this.props.removeTask, 300);
+  }
+
   render() {
     return (
-      <div className="card">
+      <div className={'card ' + (this.state.removalInProgress ? 'bg-warning': '')}>
         <div className="card-body">
           <h5 className="card-title">{this.props.task.title}</h5>
-          <button onClick={() => this.props.removeTask()} className="btn btn-default">Remove</button>
+          <button onClick={this.removeTaskHandler} className="btn btn-default">Remove</button>
         </div>
       </div>
     );

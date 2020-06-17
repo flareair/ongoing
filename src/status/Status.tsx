@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Task from '../task/Task';
+import { AddTask } from '../task/AddTask';
+
 import './Status.scss';
 import { Status as StatusInterface } from './Status.types';
 import { Task as TaskInterface} from '../task/Task.types';
@@ -21,6 +23,8 @@ class Status extends React.Component<StatusProps> {
             return <Task task={task} status={this.props.status} key={task.id}/>;
           })
         }
+
+        <AddTask status={this.props.status }/>
       </div>
     );
   }
