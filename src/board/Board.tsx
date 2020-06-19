@@ -17,13 +17,15 @@ class Board extends React.Component<BoardProps> {
   render() {
     return (
       <main className="container">
-        <h1>{this.props.boardName} ({this.props.taskCount})</h1>
         <div className="row px-2">
           {
             this.props.statuses.map(status => {
               return <Status status={status} key={status.id}/>;
             })
           }
+        </div>
+        <div className="row justify-content-center mt-3">
+          <div>Total number of tasks: {this.props.taskCount}</div>
         </div>
       </main>
     );

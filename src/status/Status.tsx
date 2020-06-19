@@ -16,7 +16,7 @@ interface StatusProps {
 class Status extends React.Component<StatusProps> {
   render() {
     return (
-      <div className="status col bg-light mx-1 py-3">
+      <div className="status col bg-light mx-1 py-3 mt-3">
         <h2>{this.props.status.name}</h2>
         {
           this.props.tasks.map(task => {
