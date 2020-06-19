@@ -67,6 +67,8 @@ export const allTasks = (state = initialState.allTasks, action: TaskActions): Al
   switch (action.type) {
   case TaskActionTypes.TASK_REMOVE:
     return state.filter(taskFromList => taskFromList !== action.taskId);
+  case TaskActionTypes.TASK_ADD:
+    return [...state, action.task.id];
   default:
     return state;
   }

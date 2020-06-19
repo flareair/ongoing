@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeTask } from './Task.actions';
 
+import { removeTask } from './Task.actions';
 import { Task as TaskInterface } from './Task.types';
+
+import './Task.scss';
 
 interface TaskProps {
   task: TaskInterface,
