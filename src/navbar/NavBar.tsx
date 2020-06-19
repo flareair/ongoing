@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
   render() {
@@ -10,12 +11,18 @@ export default class NavBar extends Component {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
-              <div className="navbar-nav">
-                <a className="nav-item nav-link active" href="/">Home <span className="sr-only">(current)</span></a>
-              </div>
-              <div className="navbar-nav">
-                <a className="nav-item nav-link float-right" href="/settings">Settings</a>
-              </div>
+              {/* left nav */}
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link className="nav-item nav-link active" to="/">Home <span className="sr-only">(current)</span></Link>
+                </li>
+              </ul>
+              {/* right nav */}
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link className="nav-item nav-link" to="/settings">Settings</Link>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
